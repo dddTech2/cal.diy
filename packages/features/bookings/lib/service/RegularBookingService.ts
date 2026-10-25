@@ -2071,7 +2071,9 @@ async function handler(
         `EventManager.create failure in some of the integrations ${organizerUser.username}`,
         safeStringify({ error, results })
       );
-    } else {
+    }
+    // Self-hosted: confirmation emails must go out even if every calendar integration failed
+    {
       const additionalInformation: AdditionalInformation = {};
 
       if (results.length) {
