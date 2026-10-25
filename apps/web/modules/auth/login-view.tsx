@@ -172,7 +172,7 @@ export default function Login({
 
   const showSocialLogin = isGoogleLoginEnabled || isOutlookLoginEnabled;
   const showSignupLink =
-    process.env.NEXT_PUBLIC_DISABLE_SIGNUP !== "true" && searchParams?.get("register") !== "false";
+    false; // Agenda Nyo: las cuentas las crea el administrador
 
   return (
     <div className="relative flex min-h-screen items-center justify-center bg-default/80 px-4 py-10">
@@ -183,7 +183,9 @@ export default function Login({
         <div className="w-full rounded-xl border border-subtle bg-default p-10 shadow-sm">
           {/* Logo */}
           <div className="mb-2 text-center">
-            <h1 className="font-cal text-xl font-bold text-emphasis">Cal.diy</h1>
+            <h1 className="sr-only">Agenda Nyo</h1>
+            <img src="/cal-logo-word.svg" alt="N&O Holding" className="mx-auto h-14 dark:hidden" />
+            <img src="/cal-logo-word-dark.svg" alt="N&O Holding" className="mx-auto hidden h-14 dark:block" />
           </div>
 
           {/* Heading */}
